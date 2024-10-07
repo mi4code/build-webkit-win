@@ -12,12 +12,16 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Chocolatey Action
-      uses: crazy-max/ghaction-chocolatey@v3.0.0    
+   # - name: Chocolatey Action
+   #   uses: crazy-max/ghaction-chocolatey@v3.0.0    
     
     - name: Build
       run: |
-        choco install -y xampp-81 python311 ruby git cmake gperf llvm ninja
+        rem choco install -y xampp-81 python311 ruby git cmake gperf llvm ninja
+        
+        winget install --scope=machine --id Git.Git Kitware.CMake Ninja-build.Ninja Python.Python.3.11 RubyInstallerTeam.Ruby.3.2 ApacheFriends.Xampp.8.2 LLVM.LLVM
+        winget install --id GnuWin32.Gperf
+        
         python -m pip install pywin32
         git config --global core.autocrlf input
         git clone https://github.com/WebKit/WebKit
