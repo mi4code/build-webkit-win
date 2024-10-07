@@ -13,9 +13,12 @@ jobs:
       uses: actions/checkout@v4
 
    # - name: Chocolatey Action
-   #   uses: crazy-max/ghaction-chocolatey@v3.0.0    
+   #   uses: crazy-max/ghaction-chocolatey@v3.0.0   
+   
+    - name: Install winget # https://github.com/marketplace/actions/install-winget
+      uses: Cyberboss/install-winget@v1
     
-    - name: Build
+    - name: Build # https://github.com/marketplace/actions/chocolatey-action
       shell: cmd
       run: |
         rem choco install -y xampp-81 python311 ruby git cmake gperf llvm ninja
@@ -66,11 +69,12 @@ jobs:
 
         perl Tools/Scripts/build-webkit --release
         dir
+        powershell Compress-Archive /WebKitBuild /WebKitBuild.zip
 
         
       
     - name: Upload
       uses: actions/upload-artifact@v4.4.0
       with:
-        path: path/to/build.zip
+        path: WebKit/WebKitBuild.zip
         name: build
