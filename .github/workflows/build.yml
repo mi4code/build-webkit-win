@@ -18,7 +18,6 @@ jobs:
     - name: Build
       shell: cmd
       run: |
-         
         rem choco install -y xampp-81 python311 ruby git cmake gperf llvm ninja
         
         winget install --scope=machine --id Git.Git Kitware.CMake Ninja-build.Ninja Python.Python.3.11 RubyInstallerTeam.Ruby.3.2 ApacheFriends.Xampp.8.2 LLVM.LLVM
