@@ -16,8 +16,8 @@ jobs:
    #   uses: crazy-max/ghaction-chocolatey@v3.0.0    
     
     - name: Build
+      shell: cmd
       run: |
-        shell: cmd
          
         rem choco install -y xampp-81 python311 ruby git cmake gperf llvm ninja
         
