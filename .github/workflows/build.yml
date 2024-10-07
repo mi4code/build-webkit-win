@@ -12,19 +12,21 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-   # - name: Chocolatey Action
-   #   uses: crazy-max/ghaction-chocolatey@v3.0.0   
+    - name: Chocolatey Action # https://github.com/marketplace/actions/chocolatey-action
+      uses: crazy-max/ghaction-chocolatey@v3.0.0  
+      with:
+         args: install -y xampp-81 python311 ruby git cmake gperf llvm ninja
    
-    - name: Install winget # https://github.com/marketplace/actions/install-winget
-      uses: Cyberboss/install-winget@v1
+   # - name: Install winget # https://github.com/marketplace/actions/install-winget
+   #   uses: Cyberboss/install-winget@v1
     
-    - name: Build # https://github.com/marketplace/actions/chocolatey-action
+    - name: Build 
       shell: cmd
       run: |
         rem choco install -y xampp-81 python311 ruby git cmake gperf llvm ninja
         
-        winget install --scope=machine --id Git.Git Kitware.CMake Ninja-build.Ninja Python.Python.3.11 RubyInstallerTeam.Ruby.3.2 ApacheFriends.Xampp.8.2 LLVM.LLVM
-        winget install --id GnuWin32.Gperf
+        rem winget install --scope=machine --id Git.Git Kitware.CMake Ninja-build.Ninja Python.Python.3.11 RubyInstallerTeam.Ruby.3.2 ApacheFriends.Xampp.8.2 LLVM.LLVM
+        rem winget install --id GnuWin32.Gperf
         
         python -m pip install pywin32
         git config --global core.autocrlf input
