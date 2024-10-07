@@ -35,7 +35,7 @@ jobs:
         path C:\xampp\perl\bin;%path%
         path %ProgramFiles%\CMake\bin;%path%
         path %ProgramFiles(x86)%\Microsoft Visual Studio\Installer;%path%
-        for /F "usebackq delims=" %%I in (`vswhere.exe -latest -property installationPath`) do set VSPATH=%%I
+        powershell for /F "usebackq delims=" %%I in (`vswhere.exe -latest -property installationPath`) do set VSPATH=%%I
         
         rem set WEBKIT_LIBRARIES=%~dp0WebKitLibraries\win
         path %~dp0WebKitLibraries\win\bin;%path%
