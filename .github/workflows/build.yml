@@ -10,7 +10,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2.0.0
+      uses: actions/checkout@v4
 
     - name: Chocolatey Action
       uses: crazy-max/ghaction-chocolatey@v3.0.0    
@@ -65,7 +65,7 @@ jobs:
         
       
     - name: Upload
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4.4.0
       with:
         path: path/to/build.zip
         name: build
