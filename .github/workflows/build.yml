@@ -17,6 +17,8 @@ jobs:
     
     - name: Build
       run: |
+        shell: cmd
+         
         rem choco install -y xampp-81 python311 ruby git cmake gperf llvm ninja
         
         winget install --scope=machine --id Git.Git Kitware.CMake Ninja-build.Ninja Python.Python.3.11 RubyInstallerTeam.Ruby.3.2 ApacheFriends.Xampp.8.2 LLVM.LLVM
@@ -35,7 +37,7 @@ jobs:
         path C:\xampp\perl\bin;%path%
         path %ProgramFiles%\CMake\bin;%path%
         path %ProgramFiles(x86)%\Microsoft Visual Studio\Installer;%path%
-        powershell for /F "usebackq delims=" %%I in (`vswhere.exe -latest -property installationPath`) do set VSPATH=%%I
+        for /F "usebackq delims=" %%I in (`vswhere.exe -latest -property installationPath`) do set VSPATH=%%I
         
         rem set WEBKIT_LIBRARIES=%~dp0WebKitLibraries\win
         path %~dp0WebKitLibraries\win\bin;%path%
