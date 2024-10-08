@@ -30,7 +30,7 @@ jobs:
         
         python -m pip install pywin32
         git config --global core.autocrlf input
-        git clone https://github.com/WebKit/WebKit
+        git clone https://github.com/mi4code/WebKit
         cd WebKit
 
 
@@ -71,7 +71,7 @@ jobs:
 
         perl Tools/Scripts/build-webkit --release
         dir
-        powershell Compress-Archive /WebKitBuild /WebKitBuild.zip
+        powershell Compress-Archive ./WebKitBuild ./WebKitBuild.zip
 
         
       
