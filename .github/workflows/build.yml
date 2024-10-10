@@ -30,7 +30,7 @@ jobs:
         
         python -m pip install pywin32
         git config --global core.autocrlf input
-        git clone https://github.com/mi4code/WebKit
+        git clone --depth 1 https://github.com/mi4code/WebKit
         REM use official repo 'git clone https://github.com/WebKit/WebKit --single-branch' source for regular build not my testing one
         cd WebKit
 
