@@ -31,6 +31,7 @@ jobs:
         python -m pip install pywin32
         git config --global core.autocrlf input
         git clone https://github.com/mi4code/WebKit
+        REM use 'git clone https://github.com/WebKit/WebKit' for regular build not my testing
         cd WebKit
 
 
@@ -71,12 +72,12 @@ jobs:
 
         perl Tools/Scripts/build-webkit --release
         dir
-        powershell Compress-Archive ./WebKitBuild ./WebKitBuild.zip
+        powershell Compress-Archive ./WebKitBuild/Release/bin ./bins.zip
 
         
       
     - name: Upload
       uses: actions/upload-artifact@v4.4.0
       with:
-        path: WebKit/WebKitBuild.zip
+        path: WebKit/bins.zip
         name: build
