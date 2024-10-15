@@ -73,7 +73,8 @@ jobs:
         perl Tools/Scripts/build-webkit --release --win -DDEVELOPER_MODE=0 -DENABLE_API_TESTS=0 -DENABLE_LAYOUT_TESTS=0
         
 
-        powershell Compress-Archive ./WebKitBuild/Release/bin ./bins.zip
+        rem powershell Compress-Archive ./WebKitBuild/Release/bin ./bins.zip
+        powershell Compress-Archive ./ ./bins.zip
 
         
       
